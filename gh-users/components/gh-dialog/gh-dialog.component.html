@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Dados de {{ username }}</h2>
+<div mat-dialog-content>
+  <mat-progress-spinner color = "accent" mode = "indeterminate" *ngIf="user != null">
+    
+  </mat-progress-spinner>
+  <ng-template #content>
+    <a [href]="user?.html_url" target="_blank"> <!-- _propriedade-->
+      {{ user?.name }} 
+    </a>
+
+    <img [src]="user?.avatar_url" target="_blank">
+
+    <div class="meio">
+      <!--Informação do usuario (ghUser) -->
+        nome: {{ user?.name }}
+        Following: {{ user?.following }} 
+        Login: {{ user?.login }} 
+        Location: {{ user?.location }} 
+        Following: {{ user?.following }}
+    </div>
+
+    <ul>
+      <li *ngFor="let i of rep">
+        <!--Informação do repositorio.ts-->
+        nome_rep: {{ i?.name }} 
+        link: {{ i?.html_url }} 
+        descrição:{{ i?.description }} 
+        idioma: {{ i?.language }} 
+        stargazers_count: {{ i?.stargazers_count }}
+      </li>
+    </ul>
+  </ng-template>
+</div>
